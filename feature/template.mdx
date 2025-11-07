@@ -1,0 +1,222 @@
+---
+title: "Feature Development Template"
+description: "Template for developing new features following a user-centric approach"
+---
+
+## Overview
+
+This template guides you through the complete feature development process, ensuring a user-centric approach that leads to better design decisions and more efficient implementation.
+
+<Warning>
+Always follow the steps in order. Starting with the user experience ensures that technical decisions are informed by real needs rather than assumptions.
+</Warning>
+
+## Step 1: User Experience Design
+
+Before writing any code, start by thinking about the feature from the user's perspective.
+
+### User Story
+
+Define what the user wants to achieve:
+
+- **As a** [user type]
+- **I want to** [action/goal]
+- **So that** [benefit/value]
+
+### Visual Design & Interactions
+
+Sketch and define the visual experience:
+
+- **Layout**: How will the feature appear on screen?
+- **User Flow**: What steps will the user take?
+- **Interactions**: What happens when the user clicks, hovers, or interacts?
+- **States**: Loading, success, error states
+- **Responsive Behavior**: How does it work on mobile, tablet, desktop?
+
+<Tip>
+Use wireframes, mockups, or even simple sketches. The goal is to visualize the complete user journey before coding.
+</Tip>
+
+### Example Questions to Answer
+
+- Where does this feature appear in the UI?
+- What information does the user need to see?
+- What actions can the user take?
+- How does the user know if something succeeded or failed?
+- What happens if something goes wrong?
+
+## Step 2: Frontend Implementation
+
+Once you have a clear vision of the user experience, implement it visually in the frontend.
+
+### Visual Implementation First
+
+Build the UI components and interactions exactly as designed:
+
+- Create the components with mock/static data
+- Implement all visual states (loading, success, error)
+- Ensure responsive design works
+- Add animations and transitions
+- Test the visual flow
+
+<Info>
+At this stage, you're building the "shell" - the visual interface that users will interact with. Don't worry about real data or API calls yet.
+</Info>
+
+### Benefits of This Approach
+
+- **Early Validation**: You can see and test the UX before backend work
+- **Clear Requirements**: The frontend defines exactly what data and endpoints are needed
+- **Parallel Work**: Frontend and backend can work in parallel once requirements are clear
+- **Better Design**: Visual implementation often reveals UX issues that weren't apparent in mockups
+
+## Step 3: API Dimensioning
+
+The frontend implementation naturally defines your API requirements.
+
+### Define API Needs
+
+Based on the frontend implementation, identify:
+
+- **Data Structure**: What data does each component need?
+- **Endpoints**: What API calls are required?
+- **Request/Response Format**: What data is sent and received?
+- **Error Handling**: What errors can occur and how are they handled?
+
+### API Specification
+
+Document the API requirements:
+
+```typescript
+// Example: Based on frontend needs
+interface FeatureRequest {
+  // Fields needed by the frontend
+}
+
+interface FeatureResponse {
+  // Data structure the frontend expects
+}
+```
+
+<Note>
+The frontend implementation serves as the contract for the API. The API should provide exactly what the frontend needs, nothing more, nothing less.
+</Note>
+
+## Step 4: Business Logic & Cost Analysis
+
+With the API dimensioned, now focus on the backend implementation and cost considerations.
+
+### Business Logic Design
+
+Design the backend logic:
+
+- **Data Processing**: How is data transformed or calculated?
+- **Validation**: What business rules apply?
+- **Data Storage**: How is data persisted?
+- **External Services**: Are third-party APIs needed?
+- **Caching**: What can be cached to improve performance?
+
+### Cost Analysis
+
+Evaluate the cost implications:
+
+- **API Calls**: How many external API calls are made?
+- **Database Operations**: Read/write operations and their frequency
+- **Compute Resources**: Processing time and complexity
+- **Storage**: Data storage requirements
+- **Third-party Services**: Costs of external services
+- **Scalability**: How does cost scale with usage?
+
+### Cost Optimization Strategies
+
+Consider:
+
+- **Caching**: Reduce redundant API calls or database queries
+- **Batch Operations**: Group multiple operations when possible
+- **Lazy Loading**: Load data only when needed
+- **Rate Limiting**: Prevent abuse and control costs
+- **Efficient Algorithms**: Optimize processing logic
+
+<Warning>
+Always consider the cost implications of your feature. A feature that works perfectly but is too expensive to run at scale is not viable.
+</Warning>
+
+## Step 5: Integration & Testing
+
+### Connect Frontend to Backend
+
+- Replace mock data with real API calls
+- Handle loading and error states
+- Implement proper error handling
+- Add loading indicators and feedback
+
+### Testing
+
+- **Unit Tests**: Test individual components and functions
+- **Integration Tests**: Test the complete flow from frontend to backend
+- **User Testing**: Validate the actual user experience
+- **Performance Testing**: Ensure the feature performs well under load
+
+## Checklist
+
+Use this checklist when developing a new feature:
+
+- [ ] User story and visual design defined
+- [ ] Wireframes/mockups created
+- [ ] Frontend components built with mock data
+- [ ] All visual states implemented (loading, success, error)
+- [ ] Responsive design tested
+- [ ] API requirements documented based on frontend needs
+- [ ] Backend business logic designed
+- [ ] Cost analysis completed
+- [ ] Cost optimization strategies implemented
+- [ ] Frontend and backend integrated
+- [ ] Testing completed
+- [ ] Documentation updated
+
+## Example Workflow
+
+<Steps>
+<Step title="Day 1: UX Design">
+- Create user story
+- Design wireframes
+- Define interactions
+- Review with stakeholders
+</Step>
+
+<Step title="Day 2-3: Frontend Implementation">
+- Build UI components
+- Implement all visual states
+- Add animations
+- Test responsive design
+</Step>
+
+<Step title="Day 4: API Dimensioning">
+- Document required endpoints
+- Define request/response formats
+- Create API specification
+</Step>
+
+<Step title="Day 5-6: Backend Implementation">
+- Implement business logic
+- Analyze costs
+- Optimize where needed
+- Write tests
+</Step>
+
+<Step title="Day 7: Integration">
+- Connect frontend to backend
+- End-to-end testing
+- Bug fixes
+- Final review
+</Step>
+</Steps>
+
+## Best Practices
+
+1. **User First**: Always start with the user experience
+2. **Visual Before Technical**: See it work before making it work
+3. **API Follows Frontend**: Let the frontend define API requirements
+4. **Cost Awareness**: Always consider the cost implications
+5. **Iterate**: Be ready to refine based on what you learn during implementation
+
